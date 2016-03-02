@@ -1,39 +1,14 @@
 define([
-	'jquery',
-	'bootstrap'
-], function ($, bootstrap) {
-		'use strict';
+	'app/views/app'
+], function (AppView) {
+	'use strict';
 
-		var id = 'content';
+	var initialize = function () {
+		var appView = new AppView();
+		$('body').append(appView.el);
+	};
 
-		var getId = function () {
-			return id;
-		};
-
-		var getTimeString = function () {
-			var date = new Date();
-			return [date.getHours(), ' : ', date.getMinutes()].join('');
-		};
-
-		 var initialize = function () {
-		   $('body').append('<div id="' + id + '"></div>');
-		 };
-
-	 	 var displayTime = function () {
-				var html = [
-					'<div class="alert">',
-						'<button type="button" class="close" data-dismiss="alert">&times;</button>',
-						'The Time is: ',
-						getTimeString(),
-					'</div>'
-				].join('');
-				$('#' + id).html(html);
-	 	 };
-
-			return {
-				initialize: initialize,
-				displayTime: displayTime,
-				getId: getId
-			}
-
+	return {
+		initialize: initialize
+	}
 });

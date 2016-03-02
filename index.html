@@ -1,21 +1,44 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class='no-js lt-ie9 lt-ie8 lt-ie7'> <![endif]-->
-<!--[if IE 7]>         <html class='no-js lt-ie9 lt-ie8'> <![endif]-->
-<!--[if IE 8]>         <html class='no-js lt-ie9'> <![endif]-->
-<!--[if gt IE 8]><!--> <html class='no-js'> <!--<![endif]-->
-<head>
-		<meta charset='utf-8'>
-		<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-		<title>Weather Watcher</title>
-		<meta name='description' content='Weather monitoring application'>
-		<meta name='viewport' content='width=device-width'>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Weather Watcher</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
 
-		<link rel='stylesheet' href='css/bootstrap.min.css'>
-		<link rel='stylesheet' href='css/main.css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
 
-		<script src='js/libs/modernizr.js'></script>
-		<script data-main='js/main' src='js/libs/require.js'></script>
-</head>
-	<body>
-	</body>
+        <script src="js/libs/modernizr.js"></script>
+        <script data-main="js/main" src="js/libs/require.js"></script>
+    </head>
+    <body>
+			<footer id="footer">
+				<div id='copyright'></div><p class='time'></p>
+		</footer>
+
+		<script type='text/javascript'>
+				function setCopy () {
+					var date = new Date();
+					var name = 'Tony Brown, UI Developer / UX Designer';
+					var year = date.getFullYear();
+					var copy =  document.querySelector('#copyright').innerHTML = '&copy; ' + year + ' ' + name;
+				}
+
+				function clock() {
+					setTimeout(clock, 1000)
+					var now = new Date()
+					var time = now.getDate()
+					time = now.getHours() +' : '+ now.getMinutes() + ' : ' + now.getSeconds()
+					var t = document.querySelector('.time').innerHTML = time
+					return  time
+				}
+				setCopy()
+				clock()
+			</script>
+    </body>
 </html>
