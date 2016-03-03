@@ -18,7 +18,7 @@ define([
 			},
 
 			render: function () {
-				var html = '<h3>This view has been <span>clicked</span> ' + this.count + ' times. <strong>REMOVE</strong></h3>'
+				var html = '<h3>This view has been <span>click me</span> ' + this.count + ' times. <strong>REMOVE</strong></h3>'
 				this.$el.html(html)
 				return this
 			},

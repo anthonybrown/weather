@@ -8,8 +8,10 @@ define([
 	'use strict';
 
 	var AppView = Backbone.View.extend({
-		id: 'app-view',
 
+		id: 'app-view',
+		// creating the html with a string
+		// and using join('') to conect the array
 		html: [
 			'<nav class="navbar navbar-default navbar-fixed-top">',
 				'<div class="container">',
@@ -30,7 +32,7 @@ define([
 					'</div>',
 				'</div>',
 			'</nav>',
-			'<div id="content" class="container well"></div> '
+			'<div id="content" class="container well"></div> '// for our child view the counter
 		].join(''),
 
 		events: {
@@ -52,7 +54,7 @@ define([
 			})
 
 			this.$el.append(this.html);
-
+			// add our counterView to the main view #content
 			this.$('#content').append(this.views['counter'].render().el)
 		},
 
