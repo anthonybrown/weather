@@ -7,9 +7,9 @@ define([
 
 		var Router = Backbone.Router.extend({
 			routes : {
-				''			: 'goToDash',
-				'dash'	: 'goToDash',
-				'about' : 'goToAbout'
+				''						: 'goToDash',
+				'dash/:place'	: 'goToDash',
+				'about'				: 'goToAbout'
 			},
 
 			initialize: function (view) {
@@ -17,7 +17,7 @@ define([
 			},
 
 			goToDash: function () {
-				this.appView.setPage('dash');
+				this.appView.setPage('dash')
 			},
 
 			goToAbout: function () {
@@ -27,5 +27,5 @@ define([
 		})
 
 		return Router
-});
+})
 
