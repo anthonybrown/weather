@@ -2,8 +2,9 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'app/views/counter'
-], function ($, _, Backbone, CounterView) {
+	'app/views/about',
+	'app/views/dash'
+], function ($, _, Backbone,  AboutView, DashView) {
 
 	'use strict';
 
@@ -26,7 +27,7 @@ define([
 					'</div>',
 					'<div id="navbar" class="navbar-collapse collapse">',
 						'<ul class="nav navbar-nav">',
-							'<li id="nav-dash" class="active"><a href="#">Dashboard</a></li>',
+							'<li id="nav-dash"><a href="#dash">Dashboard</a></li>',
 							'<li id="nav-about"><a href="#about">About</a></li>',
 						'</ul>',
 					'</div>',
@@ -36,35 +37,32 @@ define([
 		].join(''),
 
 		events: {
-			'click #nav-dash' : 'onNavDash',
-			'click #nav-about': 'onNavAbout'
-		},
 
-		render: function() {
-			this.$('#content').append(this.views['counter'].render().el);
-			return this;
 		},
 
 		views: {},
 
 		initialize: function() {
-			this.views['counter'] = new CounterView({
-				id: 'counter-widget',
-				className: 'counter-widget'
+			this.views['about'] = new AboutView({
+				id: 'page-about',
+				className: 'page-view'
+			})
+
+			this.views['dash'] = new DashView({
+				id: 'page-dash',
+				className: 'page-view'
 			})
 
 			this.$el.append(this.html);
-			// add our counterView to the main view #content
-			this.$('#content').append(this.views['counter'].render().el)
+
+			this.$('#content').append(this.views['about'].render().el)
+			this.$('#content').append(this.views['dash'].render().el)
 		},
 
-		onNavDash : function () {
-			alert(this.$el + ' has been clicked')
+		setPage: function (page) {
+			this.$('.page-view').hide()
+			this.$('#page-' + page).show()
 		},
-
-		onNavAbout : function () {
-			alert(this.$el + ' about has been clicked')
-		}
 
 	});
 
