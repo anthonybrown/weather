@@ -8,7 +8,7 @@ define([
 		var Router = Backbone.Router.extend({
 			routes : {
 				''						: 'goToDash',
-				'dash/:place'	: 'goToDash',
+				'dash'				: 'goToDash',
 				'about'				: 'goToAbout'
 			},
 
