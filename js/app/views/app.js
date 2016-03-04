@@ -27,7 +27,7 @@ define([
 					'</div>',
 					'<div id="navbar" class="navbar-collapse collapse">',
 						'<ul class="nav navbar-nav">',
-							'<li id="nav-dash"><a href="#dash">Dashboard</a></li>',
+							'<li id="nav-dash" class="active"><a href="#dash">Dashboard</a></li>',
 							'<li id="nav-about"><a href="#about">About</a></li>',
 						'</ul>',
 					'</div>',
@@ -60,8 +60,10 @@ define([
 		},
 
 		setPage: function (page) {
+			this.$('.nav li').removeClass('active')
 			this.$('.page-view').hide()
 			this.$('#page-' + page).show()
+			this.$('#nav-' + page).addClass('active')
 		},
 
 	});
