@@ -20,6 +20,8 @@ define([
 							Require.js to load all the seperate JavaScript files.\
 							This app also uses Handlebars.js, an excellent templating\
 							library for rendering templates.</p>',
+						'<p>This app will be consuming JSON from the wunderground API\
+							for it\'s 5 day weather forecasting.</p>'
 						'</div>'
 				].join('');
 					this.$el.html(html)
