@@ -2,17 +2,18 @@ define([
 	'app/views/app',
 	'app/routers/router'
 ], function (AppView, Router) {
-	'use strict';
+		'use strict';
 
-	var initialize = function () {
-		var appView = new AppView()
-		$('body').append(appView.el)
+	 var initialize = function () {
+	   var appView = new AppView()
+		 $('body').append(appView.el)
 
-		var router = new Router(appView)
-		Backbone.history.start()
-	};
+		 var router = new Router(appView)
+		 Backbone.history.start()
+	 };
 
-	return {
-		initialize: initialize
-	}
+	 return {
+	   initialize: initialize
+	 }
+
 });

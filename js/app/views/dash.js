@@ -17,7 +17,7 @@ define([
 			render: function () {
 				var html = [
 					'<div class="jumbotron">',
-						'<h1>Dashboard</h1>',
+					'<h1>Dashboard <i class="fa fa-rocket"></i></h1>',
 						'<p class="lead">This will be the dashboard of our application</p>',
 					'</div>',
 				].join('')

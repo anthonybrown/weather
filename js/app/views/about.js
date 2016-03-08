@@ -14,7 +14,7 @@ define([
 			render: function () {
 				var html = [
 					'<div class="jumbotron">',
-						'<h1>About the weather app.</h1>',
+					'<h1>About the weather app.<i class="fa fa-flask"></i></h1>',
 						'<p class="lead">This app is built using \
 							Backbone.js, Underscore, jQuery, Bootstrap and \
 							Require.js to load all the seperate JavaScript files.\

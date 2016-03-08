@@ -1,0 +1,34 @@
+## A word about test driven development.
+
+Testing should be done through-out the entire time of the development
+process.
+In test driven development we write our tests first
+before we emplement the modules that we're testing.
+
+This has a number of benefits that include us to focus on the use
+of our modules, to focus on the input and output of what we expect
+from each of our modules. How our modules should handle the wrong
+type of input or output.
+
+It also helps to document the code. Having
+a test for each major part of functionality for your application is
+also documenting the code, saying what it should do and what is the
+expected output. Makes the refactoring of the code less dangerous.
+
+If we have a suite of tests we can run everytime we change something
+in the application, we can feel safe in knowing that the code is
+working as expected.
+
+Here's an acronym that sums up a good testing practice.
+A-TRIP
+
+1. Automatic
+	a. Grunt
+	b. Gulp
+	c. Webpack
+2. Thourough
+3. Repeatable
+4. Independent
+5. Professional
+
+
