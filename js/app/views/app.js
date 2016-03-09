@@ -2,9 +2,10 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'app/views/counter',
 	'app/views/about',
 	'app/views/dash'
-], function ($, _, Backbone,  AboutView, DashView) {
+], function ($, _, Backbone,CounterView,  AboutView, DashView) {
 
 	'use strict';
 
@@ -23,13 +24,28 @@ define([
 							'<span class="icon-bar"></span>',
 							'<span class="icon-bar"></span>',
 						'</button>',
-						'<a class="navbar-brand" href="#">Weather Watcher <i class="fa fa-umbrella"></i></a>',
+						'<a class="navbar-brand" href="#"><i class="fa fa-umbrella"></i> Weather Watcher</a>',
 					'</div>',
 					'<div id="navbar" class="navbar-collapse collapse">',
 						'<ul class="nav navbar-nav">',
-						'<li id="nav-dash" class="active"><a href="#dash">Dashboard <i class="fa fa-rocket"></i></a> </li>',
-							'<li id="nav-about"><a href="#about">About <i class="fa fa-question-circle"></i></a></li>',
+							'<li id="nav-dash" class="active"><a href="#dash"><i class="fa fa-rocket"></i> Dashboard</a></li>',
+							'<li id="nav-about"><a href="#about"><i class="fa fa-question-circle"></i> About</a></li>',
+							'<li class="dropdown">',
+              '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-sitemap"></i> Misc<span class="caret"></span></a>',
+              '<ul class="dropdown-menu">',
+              	'<li id="nav-counter"><a href="#counter">Counter <i class="fa fa-road"></i></a> </li>',
+                '<li><a href="#">Another demo <i class="fa fa-road"></i></a></li>',
+                '<li><a href="#">One more demo <i class="fa fa-road"></i></a></li>',
+                '<li role="separator" class="divider"></li>',
+                '<li class="dropdown-header">Nav header</li>',
+                '<li><a href="#">Separated link <i class="fa fa-road"></i></a></li>',
+                '<li><a href="#">One more separated link <i class="fa fa-road"></i></a></li>',
+              '</ul>',
+            '</li>',
 						'</ul>',
+						'<ul class="nav navbar-nav navbar-right">',
+							'<li id="nav-counter"><a href="https://github.com/anthonybrown/weather">Tony Brown <i class="fa fa-paw"></i></a> </li>',
+          	'</ul>',
 					'</div>',
 				'</div>',
 			'</nav>',
@@ -53,10 +69,16 @@ define([
 				className: 'page-view'
 			})
 
+			this.views['counter'] = new CounterView({
+				id: 'page-counter',
+				className: 'page-view'
+			})
+
 			this.$el.append(this.html);
 
 			this.$('#content').append(this.views['about'].render().el)
 			this.$('#content').append(this.views['dash'].render().el)
+			this.$('#content').append(this.views['counter'].render().el)
 		},
 
 		setPage: function (page) {
