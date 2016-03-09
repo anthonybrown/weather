@@ -8,3 +8,9 @@ javascript from the DOM, which is always good.
 
 Learning to build Single Page Applications in JavaScript is not a trivial matter and takes
 lots of planning to pull it off successfully.
+
+###Tests
+
+To see the tests fail or pass, go to http://anthonybrown.github.io/weather/test-runner.html
+I'm only showing one test at the moment and that's for the fahrenheit to celsius conversion
+is working.
