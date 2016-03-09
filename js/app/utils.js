@@ -4,7 +4,8 @@ define([
 	'use strict';
 
 	var isNumber = function (n) {
-		return typeof n === 'number';
+		//return typeof n === 'number';
+		return !isNaN(parseFloat(n)) && isFinite(n);
 	};
 
 	var celsiusToFahrenheit = function (cel) {
@@ -12,7 +13,7 @@ define([
 			return null;
 		}
 
-		var fahr = cel * 9 / 5 + 32;
+		var fahr = ( cel * 9 / 5 ) + 32;
 		return fahr;
 	};
 
