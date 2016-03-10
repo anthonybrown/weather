@@ -10,7 +10,7 @@ define([
 			defaults: {
 				'backgroundColor': '#e7e7e7',
 				'celsius'        : true,
-				'welcomeMessage' : 'the weather watcher'
+				'welcomeMessage' : 'weather watcher'
 			}
 		});
 

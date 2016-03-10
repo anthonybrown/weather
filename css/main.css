@@ -1,6 +1,32 @@
 /* ==========================================================================
    Custom Styles
    ========================================================================== */
+body {
+	padding: 1em;
+}
+
+#app-view {
+	padding-top: 10px;
+}
+
+#header {
+	margin: 0 10px 10px 10px;
+}
+
+.page-view > h3 {
+	margin-left: 20px;
+}
+
+#places-list {
+	padding: 20px;
+}
+
+#places-list .panel {
+	width: 300px;
+	float: left;
+	margin-right: 1em;
+}
+
 #content {
 	padding-left: 2em;
 	padding-right: 2em;
