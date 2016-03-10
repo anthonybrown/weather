@@ -5,7 +5,7 @@ require.config({
 		'underscore': 'libs/underscore-min',
 		'backbone': 'libs/backbone',
 		'bootstrap': 'libs/bootstrap.min',
-		'backbone.localStorage': 'libs/backbone.localStorage-min'
+		'backbone.localStorage': 'libs/backbone.localStorage'
 	},
 	// The shim config allows us to configure dependencies for
 	// scripts that do not call define() to register a module

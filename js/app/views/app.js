@@ -44,6 +44,7 @@ define([
             '</li>',
 						'</ul>',
 						'<ul class="nav navbar-nav navbar-right">',
+							'<p class="navbar-text pull-right"></p>',
 							'<li id="nav-counter"><a href="https://github.com/anthonybrown/weather">Tony Brown <i class="fa fa-paw"></i></a> </li>',
           	'</ul>',
 					'</div>',
@@ -59,6 +60,8 @@ define([
 		views: {},
 
 		initialize: function() {
+			this.listenTo(this.model, 'change', this.render)
+
 			this.views['about'] = new AboutView({
 				id: 'page-about',
 				className: 'page-view'
@@ -76,17 +79,25 @@ define([
 
 			this.$el.append(this.html);
 
-			this.$('#content').append(this.views['about'].render().el)
-			this.$('#content').append(this.views['dash'].render().el)
-			this.$('#content').append(this.views['counter'].render().el)
+			this.$('#content').append(this.views['about'].render().el);
+			this.$('#content').append(this.views['dash'].render().el);
+			this.$('#content').append(this.views['counter'].render().el);
+		},
+
+		render: function() {
+			this.$el.css('background-color', this.model.get('backgroundColor'));
+			this.$('.navbar-text').html(this.model.get('welcomeMessage'));
+			return this;
 		},
 
 		setPage: function (page) {
-			this.$('.nav li').removeClass('active')
-			this.$('.page-view').hide()
-			this.$('#page-' + page).show()
-			this.$('#nav-' + page).addClass('active')
-		},
+			this.$('.nav li').removeClass('active');
+			this.$('.page-view').hide();
+			this.$('#page-' + page).show();
+			this.$('#nav-' + page).addClass('active');
+
+			this.model.set('welcomeMessage', 'Welcome to the ' + page + ' page')
+		}
 
 	});
 

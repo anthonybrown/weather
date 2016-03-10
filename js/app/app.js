@@ -1,19 +1,36 @@
 define([
 	'app/views/app',
-	'app/routers/router'
-], function (AppView, Router) {
+	'app/routers/router',
+	'app/models/app',
+	'app/collections/days'
+], function (AppView, Router, AppModel, DaysCollection) {
 		'use strict';
 
-	 var initialize = function () {
-	   var appView = new AppView();
-		 $('body').append(appView.el);
+		var initialize = function () {
+			var appModel = new AppModel();
 
-		 var router = new Router(appView);
-		 Backbone.history.start();
+			var appView = new AppView({ model: appModel });
+			$('body').append(appView.render().el);
+
+			var router = new Router(appView);
+			Backbone.history.start();
+
+			var daysCollection = new DaysCollection([], {
+				url : 'http://api.wunderground.com/api/65c6079471b5de45/forecast/q/France/Paris.json'
+			});
+
+			daysCollection.fetch({
+				success: function (collection, response, options) {
+					console.log(collection, response)
+				},
+				error: function (collection, response, options) {
+					console.log('error');
+				}
+			});
 	 };
 
-	 return {
-	   initialize: initialize
+		return {
+	    initialize: initialize
 	 }
 
 });
